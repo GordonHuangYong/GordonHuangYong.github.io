@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo使用日志]]></title>
+    <url>%2F2018%2F03%2F22%2FHexo%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97%2F</url>
+    <content type="text"><![CDATA[后台http://localhost:4000/admin/ 用户:137**3 密码:z*15 html转markdown直接在网上转码http://markdownrules.com/ http://heckyesmarkdown.com/ https://domchristie.github.io/turndown/ 或者使用本地工具read2text,命令: read2text http://brettterpstra.com/keybinding-madness/ | pbcopy 工具官网:http://brettterpstra.com/2012/01/04/scripting-readability-markdownify-for-clipping-web-pages/ 插入图片:sourcetag_dir/img目录下直接放入图片, 进行引用/img/xx.png 或者直接在后台复制,粘贴,图片自动放进了sourcetag_dir/images/目录.并且显示引用. 删除文章时,图片不能自动删除.需要手动处理. 发布到github.在后台 http://localhost:4000/admin/直接点击desploy即可 发布到https://gordonhuangyong.github.io/]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo 安装使用说明2]]></title>
     <url>%2F2018%2F03%2F22%2FHexo-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E2%2F</url>
     <content type="text"><![CDATA[Source mac上hexo博客的搭建 - CSDN博客​ 第一篇hexo博客，介绍了在mac上搭建hexo博客的全过程。包括：准备工作、本地站点的建立、启动和部署站点、创建新文章、发布到github、更换主题 和 绑定域名。在介绍之前先秀一波我搭的成果: 夏天的风的博客 准备工作 github homebrew node.js 和 npm hexo github1、github账号 ​ 这部分略过，没有的话自己注册一个。然后将mac上的公钥添加到github上去。 2、建立仓库 ​ 严格按照 git用户名.github.io 来命名。我这里就叫：xiaqunfeng.github.io 。 homebrewhomebrew 是MAC OSX 上面用来安装 或者 卸载软件用的非常方面的一个软件。在终端上执行如下命令即可安装，参考官网。 sudo /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; node.js不推荐使用 brew 安装node， 直接从官网下载，然后双击安装。我这里选择的版本是：v6.9.3 LTS。node.js 集成带有npm。 $ node -v v6.9.3 $ npm -v 3.10.10 hexo$ sudo npm install hexo-cli -g 安装完后 $ hexo -v hexo: 3.2.2 hexo-cli: 1.0.2 os: Darwin 16.1.0 darwin x64 http_parser: 2.7.0 node: 6.9.3 v8: 5.1.281.89 uv: 1.9.1 zlib: 1.2.8 ares: 1.10.1-DEV icu: 57.1 modules: 48 openssl: 1.0.2j hexo命令行使用常用命令： hexo help #查看帮助 hexo init #初始化一个目录 hexo new &quot;postName&quot; #新建文章 hexo new page &quot;pageName&quot; #新建页面 hexo generate #生成网页，可以在 public 目录查看整个网站的文件 hexo server #本地预览，&apos;Ctrl+C&apos;关闭 hexo deploy #部署.deploy目录 hexo clean #清除缓存，强烈建议每次执行命令前先清理缓存，每次部署前先删除 .deploy 文件夹 简写： hexo n == hexo new hexo g == hexo generate hexo s == hexo server hexo d == hexo deploy 建立本地站点执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。（文件夹不需要提前建好，会自行创建） $ hexo init $ cd $ npm install 新建文件夹目录如下： . ├── .deploy #需要部署的文件 ├── node_modules #Hexo插件 ├── public #生成的静态网页文件 ├── scaffolds #模板 ├── source #博客正文和其他源文件 | ├── _drafts #草稿(刚开始没有) | └── _posts #文章 ├── themes #主题 ├── _config.yml #全局配置文件 └── package.json 启动站点执行 hexo server 启动站点 $ hexo s INFO Start processing INFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop. 在浏览器中输入： 就可以看到站点了。 部署站点编辑文件 _config.yml ，修改如下： deploy: type: git repository: https://github.com/xiaqunfeng/xiaqunfeng.github.io.git branch: master 注意：冒号后面要留 空格！！ 创建新文章方法1、hexo n创建新文章 $ hexo n &quot;我的第一篇hexo博客&quot; INFO Created: ~/hexo-blog/source/_posts/我的第一篇hexo博客.md 然后用编辑器打开编辑即可。 方法2、直接在 source/_posts 中新建一个md文件，进行编辑 在hexo-blog文件夹下执行： hexo g hexo s 然后在浏览器中输入http://localhost:4000就可以看到新加的文章了。 发布执行 hexo d ，发现如下问题 $ hexo d ERROR Deployer not found: git 解决方法 $ npm install hexo-deployer-git --save hexo-site@0.0.0 /Users/xiaqunfeng/hexo-blog └── hexo-deployer-git@0.2.0 再执行 hexo d $ hexo d INFO Deploying: git INFO Clearing .deploy_git folder... INFO Copying files from public folder... On branch master nothing to commit, working tree clean Username for &apos;https://github.com&apos;: xiaqunfeng Password for &apos;https://xiaqunfeng@github.com&apos;: To https://github.com/xiaqunfeng/xiaqunfeng.github.io.git * [new branch] HEAD -&gt; master Branch master set up to track remote branch master from https://github.com/xiaqunfeng/xiaqunfeng.github.io.git. INFO Deploy done: git 输入github的用户名和密码即可。此时，博客已经完全搭建起来了。 在浏览器中输入： 即可访问。 预览如下： 更换主题自己google一下hexo主题，选一个自己喜欢的，然后git clone下来。比如 Next 主题 $ git clone https://github.com/iissnan/hexo-theme-next.git 然后打开_config.yml文件，替换其中的 theme 属性，默认为 landscape。 theme: next 本地调试$ hexo g $ hexo s 发布到github1、清理之前生成的内容，即public文件。 注意：这一步必须要，不然有时因为缓存问题，服务器更新不了主题 $ hexo clean 2、生成静态文件并部署到github $ hexo g $ hexo d 上面两个命令可以合并为一个： $ hexo d -g 绑定域名 我暂时还没购买和绑定域名，就暂时先简单介绍一下，后续再来补充完善。 1、购买域名 某乎这里有各种推荐，自己可以参考的看看。 godaddy地址: https://www.godaddy.com 阿里云域名地址: http://wanwang.aliyun.com 2、到自己的gitHubPages的ip地址 ping http://xiaqunfeng.github.io PING github.map.fastly.net (151.101.192.133): 56 data bytes 64 bytes from 151.101.192.133: icmp_seq=0 ttl=49 time=62.670 ms 64 bytes from 151.101.192.133: icmp_seq=1 ttl=49 time=65.062 ms ... 这里IP地址为：151.101.192.133 3、域名绑定IP地址 登录自己购买域名的地方，找到域名相关选项 添加域名 添加记录：一个主机记录 @， 一个为www，记录值都是博客主页对应的ip。 等待生效，最迟72小时生效，然后就可通过域名浏览你的博客主页了。]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[手机语音识别]]></title>
@@ -19,6 +30,19 @@
     <title><![CDATA[iTime GPRS 产品说明书]]></title>
     <url>%2F2017%2F06%2F23%2FiTime-GPRS-%E4%BA%A7%E5%93%81%E8%AF%B4%E6%98%8E%E4%B9%A6%2F</url>
     <content type="text"><![CDATA[产品特点功能特点 产品使用2G网络, 可使用APP进行远程控制. 特别适合不需要网线, 没有WiFi的场景.(当地网络运营商必须支持gsm网络制式). 控制插座, 实时显示用电器功率, 实时显示温度(需要单独购买温度传感器) 可自定义, 多个时段的定时任务进行精准控制 . 采用流行的MQTT物联网协议, 产品可扩展性强. APP支持Android, iOS系统. 产品规格与包装规格参数 规格 参数 工作电压 AC 100～250V WIFI标准 centered 壳体材料 ABS阻燃 额定电流 10A /250VAC 使用环境 仅限于室内使用，相对湿度小于95% 产品大小 长x宽x高 = 115x62x29(高度不含插头) 包装清单插座x1, 说明书x1.(不包含温度传感器, 如果需要, 请单独购买) 产品实例介绍 按键操作说明 按键 操作 作用 开关键 短按 打开/关闭插孔电源输出 开关键 长按6秒~8秒 必须在网络指示灯快闪连上服务器之后执行此操作，此操作为恢复出厂设置，清除所有数据 重启键 短按 重启设备 指示灯意义说明 颜色 状态 意义 红灯 长亮 在开关键长按6秒后，红色指示灯会亮起，表示正在恢复出厂设置，清除设备所有数据 绿灯 慢闪 等待SIM卡注册到网络 绿灯 快闪 已经连接上了服务器，可以进行远程控制 注意事项避免不必要伤害, 应始终遵守基本的安全预防措施. 本产品适合常规室内环境使用, 请勿安装在易燃易爆危险场所, 插入或拔下插头时, 产生的火花容易引起爆炸或起火. 请按说明书要求, 插在相应的供电插座上, 供电的插座电压应该在AC 100～250V ;过高电压会烧坏内部元件造成本产品损坏, 过低电压会使本产品不工作. 本产品为无防水设计, 投入水中会造成产品漏电. 本产品安装在小孩或宠物接触不到的地方, 避免小孩或宠物当成玩具品, 造成不必要的触电危险. 内部有高压电路设计, 严禁非专业人员私自拆开机器. 免责声明本产品只提供电源插座, 对被供电设备电器, 给予控制通电或关电, 对被供电的设备电器可能的安全问题不予负责, 请用户使用前检查所被供电的设备电器是否能安全使用. 因为本产品所连接设备电器, 可能因个人使用其中的远程控制或定时设置功能而随时供电, 请用户注意当设备被供电时, 不会因此造成人员伤害或财产损失, 我们不承担由此造成的任何责任和后果.]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[JetBrains JRebel 注册码]]></title>
+    <url>%2F2017%2F06%2F13%2FJetBrains-JRebel-%E6%B3%A8%E5%86%8C%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[Y5SOoGisUkoIHN96siAaoIALbP02MP4ybv+GRDfJ2uXLR868vC4sVNGK7p6OlQKNvvr3MoBwq3ihw9bjpHsYa85LTt1dgu+Hr/i29HBCe2EEM5B+gz5zHd6wev6g3KV/zWiQ5g== 官网:https://my.jrebel.com/signup/make-account账号:itecheck/a**8关联:tiwter 选择Connect to license server，然后在下面两栏中分别填上如下所示地址即可 http://idea.lanyus.com/ilanyulanyu19950316@gmail.com12其中ilanyu这个可以随便取名。]]></content>
+      <categories>
+        <category>插件</category>
+      </categories>
+      <tags>
+        <tag>安卓</tag>
+        <tag>插件</tag>
+        <tag>注册码</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[未解决的难题]]></title>
