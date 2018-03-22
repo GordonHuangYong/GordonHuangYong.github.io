@@ -45,15 +45,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[未解决的难题]]></title>
-    <url>%2F2017%2F06%2F12%2F%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E9%9A%BE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[1.手机离线语音识别2.安卓手机手电筒闪烁频率不统一.有些手机很慢.3.声波通讯4.获取普通用户的微信支付结果.]]></content>
-      <tags>
-        <tag>难题</tag>
-        <tag>未解决</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[安卓推送通知]]></title>
     <url>%2F2017%2F06%2F09%2F%E5%AE%89%E5%8D%93%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5%2F</url>
     <content type="text"><![CDATA[B、MQTT协议实现Android推送 采用MQTT协议实现Android推送功能也是一种解决方案。MQTT是一个轻量级的消息发布/订阅协议，它是实现基于手机客户端的消息推送服务器的理想解决方案。 wmqtt.jar 是IBM提供的MQTT协议的实现。我们可以从这https://github.com/tokudu/AndroidPushNotificationsDemo 下载该项目的实例代码，并且可以找到一个采用PHP书写的服务器端实现https://github.com/tokudu/PhpMQTTClient C、RSMB实现推送功能 Really Small Message Broker (RSMB) ，是一个简单的MQTT代理，同样由IBM提供，其查看地址是：http://www.alphaworks.ibm.com/tech/rsmb 缺省打开1883端口，应用程序当中，它负责接收来自服务器的消息并将其转发给指定的移动设备。SAM是一个针对MQTT写的PHP库。 上面两个php都用到了SAM库.php异步框架:http://pecl.php.net/package/sam/download/ 建议还是使用第三方推送. 在内存低的时候，后台服务会被杀掉。 锁屏时间久了，后台服务也会被杀掉。 具体的意思见： Android开发之如何保证Service不被杀掉[（broadcast+system/app）](http://blog.csdn.net/mad1989/article/details/22492519) 另外, 自己做还需要兼容新的谷歌标准(GMS)和国内标准. [工信部放大招：将统一 Android 消息推送标准](http://www.oschina.net/news/85467/unified-android-messaging-standard) [本土安卓阵营要打造推送标准？你应看到这些](http://www.duanxinmi.com/61fditc620170605c6n495714696.html)]]></content>
